@@ -155,21 +155,21 @@ jobs:
       - if: ${{ inputs.ambiente == 'develop'}}
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: arn:aws:iam::${{secrets.DEV_AWS_ACCOUNT_ID}}:role/webinar_rol_despliegue
+          role-to-assume: arn:aws:iam::${{secrets.DEV_AWS_ACCOUNT_ID}}:role/github-actions-deploy-role
           role-session-name: webinar_rol_despliegue
           aws-region: ${{ inputs.region }}        
       # Credenciales de preprod
       - if: ${{ inputs.ambiente == 'preprod'}}
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: arn:aws:iam::${{secrets.PRE_AWS_ACCOUNT_ID}}:role/webinar_rol_despliegue
+          role-to-assume: arn:aws:iam::${{secrets.PRE_AWS_ACCOUNT_ID}}:role/github-actions-deploy-role
           role-session-name: webinar_rol_despliegue
           aws-region: ${{ inputs.region }}  
       # Credenciales de producción
       - if: ${{ inputs.ambiente == 'production' }}
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: arn:aws:iam::${{secrets.PROD_AWS_ACCOUNT_ID}}:role/webinar_rol_despliegue
+          role-to-assume: arn:aws:iam::${{secrets.PROD_AWS_ACCOUNT_ID}}:role/github-actions-deploy-role
           role-session-name: webinar_rol_despliegue
           aws-region: ${{ inputs.region }}
       - name: "Instalando dependencias"
